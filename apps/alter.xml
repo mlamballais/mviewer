@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <application title="Alter" mouseposition="false" logo="" help="mviewer_help.html" measuretools="true" exportpng="true" style="css/themes/wet_asphalt.css" togglealllayersfromtheme="true"/>
+    <mapoptions maxzoom="19" projection="EPSG:2154" center="432370,6714508" zoom="12" projextent="-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244" />
+  
+    <baselayers style="default">
+        <baselayer  type="OSM" id="positron" label="Positron" title="Carto" thumbgallery="img/basemap/positron.png" 
+            url="http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" maxzoom="20" 
+            visible="true" attribution="Map tiles by  &lt;a href='https://carto.com/attributions' target='_blank'>Carto &lt;/a>, under  &lt;a href='https://creativecommons.org/licenses/by/3.0/' target='_blank'>CC BY 3.0 &lt;/a>" />
+        
+    </baselayers>     
+    <proxy url=""/>
+    <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban" attribution="La recherche d'adresse est un service proposé par la BAN"/>
+    <searchparameters bbox="false" localities="true" features="false" />   
+
+    <themes>
+        <theme name="alter"  collapsed="false" id="test" icon="fas fa-leaf">  
+            <layer id="operation_alter_s" name="test1"  visible="false" tiled="false"
+            url="http://localhost:8080/geoserver/alter/wfs?version=1.1.0">
+            <template url="template/test.mst"></template>
+            </layer> 
+        </theme>             
+        <theme name="Environnement"  collapsed="false" id="environnement" icon="fas fa-leaf">
+            <layer id="reserve_naturelle_regionale" name="Réserves naturelles régionales"  visible="false" tiled="false"
+				searchable="false" queryable="true" fields="axe" aliases="axe"   
+				infoformat="application/vnd.ogc.gml" featurecount="1"
+				sld="https://kartenn.region-bretagne.fr/styles/reserve_naturelle.sld" 
+				url="https://ows.region-bretagne.fr/geoserver/rb/wms"
+				legendurl="https://kartenn.region-bretagne.fr/img/styles/rnr.png" 
+				attribution="Source: Région Bretagne" 
+				metadata="https://geobretagne.fr/geonetwork/srv/eng/catalog.search?node=srv#/metadata/77f8fc52-ae57-41d1-8f08-7b121b013f51"
+				metadata-csw="https://geobretagne.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=77f8fc52-ae57-41d1-8f08-7b121b013f51" >
+				<template url="https://kartenn.region-bretagne.fr/kartoviz/apps/region/global/templates/global.reserve_naturelle_reg.mst"></template>
+		    </layer> 
+        </theme>
+
+    </themes>
+</config>
